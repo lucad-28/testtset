@@ -1,0 +1,25 @@
+.cell {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 7px;
+  gap: 1px;
+}
+
+.pending {
+  background-color: #f7d881;
+}
+
+.attended {
+  background-color: #c5e4b7;
+}
+
+.cancelled {
+  background-color: #f8a398;
+}
+
+.rescheduled {
+  background-color: #a6d7e3;
+}
