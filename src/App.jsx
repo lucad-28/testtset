@@ -1,10 +1,11 @@
 import './App.css'
 import ProfesionalSchedule from './components/ProfesionalSchedule'
+import PatientSchedule from './components/PatientSchedule/PatientSchedule'
 
 function App() {
 
   return (
-    <ProfesionalSchedule />
+    <PatientSchedule />
   )
 
 

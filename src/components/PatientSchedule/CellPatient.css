@@ -1,0 +1,15 @@
+.cellpatient{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(133, 63, 199);
+}
+
+.e-appointment{
+    background-color: rgb(133, 63, 199);
+}
+
+.cellpatient.desactivate{
+    background-color: gray;
+}
+
+
