@@ -4,11 +4,11 @@ import { ScheduleComponent, ViewsDirective, ViewDirective, Day, Week, WorkWeek, 
 import './editor-template.css';
 import { extend } from '@syncfusion/ej2-base';
 import citasJSON from "../../mock/getCitas_mock.json";
-import {editorTemplate, editorHeaderTemplate, editorFooterTemplate} from './editorTemplate'
+import {editorTemplate, editorHeaderTemplate} from './editorTemplate'
 /**
  * Schedule editor template sample
  */
-const PatientSchedule = () => {
+const ModalSchedule = () => {
   //DEFINIENDO EL PATIENT ID
   let patientID = 1
   let citas_data = citasJSON.filter(cita => cita.pacienteId === patientID).map((cita) => {
@@ -64,16 +64,16 @@ const PatientSchedule = () => {
     const onPopupOpen = (args) => {
       console.log(args)
 
-     /*  if(args.data.AreaName == "Add Area"){
+      if(args.data.AreaName == "Add Area"){
         args.cancel = true
         return
-
+        
       }
       if(args.target && args.type === "QuickInfo"){
         args.cancel = true
         args.type = "Editor"
 
-      } */
+      }
       /* if((args.target && !args.target.classList.contains('e-appointment') && (args.type === "QuickInfo")) ||((args.type === "Editor") && args.target && (!args.target.classList.contains('e-lib') || !args.target.classList.contains('e-appointment-border')))){
         args.cancel = onEventCheck(args);
       } */
@@ -86,24 +86,8 @@ const PatientSchedule = () => {
 
     return (<div className='schedule-control-section'>
       <div className='col-lg-12 control-section'>
-      <button onClick={() => {
-              /*
-                TODO: Fechear la primera cita disponible cuando seleccione un area
-              */
-              console.log(scheduleObj.current)
-              let cellData = {
-                startTime: new Date(2024, 1, 25, 10, 0, 0),
-                endTime: new Date(2024, 1, 25, 11, 0, 0),
-                Subject: 'Review Meeting',
-                StartTime: new Date(),
-                EndTime: new Date(2024, 1, 25, 10, 0, 0)
-              };
-
-              scheduleObj.current.openEditor(cellData, 'Add');            
-              console.log(scheduleObj.current)  
-            }}>Agendar Cita</button>
         <div className='control-wrapper'>
-          <ScheduleComponent width='100%' height='650px' selectedDate={new Date(2024, 1, 25)} ref={scheduleObj} eventSettings={{ dataSource: data,  fields: fliedsCita}} editorTemplate={editorTemplate} editorFooterTemplate={editorFooterTemplate} editorHeaderTemplate={editorHeaderTemplate} actionBegin={onActionBegin} showQuickInfo={true} popupOpen={onPopupOpen} eventRendered={onEventRendered}>
+          <ScheduleComponent width='100%' height='300px' selectedDate={new Date(2024, 1, 25)} ref={scheduleObj} eventSettings={{ dataSource: data,  fields: fliedsCita}} editorTemplate={editorTemplate} editorHeaderTemplate={editorHeaderTemplate} actionBegin={onActionBegin} showQuickInfo={true} popupOpen={onPopupOpen} eventRendered={onEventRendered}>
             <ViewsDirective>
               <ViewDirective option='Day'/>
               <ViewDirective option='Week'/>
@@ -111,10 +95,9 @@ const PatientSchedule = () => {
               <ViewDirective option='Month'/>
             </ViewsDirective>
             <Inject services={[Day, Week, WorkWeek, Month]}/>
-            
           </ScheduleComponent>
         </div>
       </div>
     </div>);
 };
-export default PatientSchedule;
+export default ModalSchedule;

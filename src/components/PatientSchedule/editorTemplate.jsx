@@ -5,7 +5,8 @@ import {MiniSchedule} from './miniSchedule'
 
 
 export const editorTemplate = (props) => {
-    
+  console.log("editor template")
+    console.log(props)
     return ((props !== undefined) ?
         <table className="custom-event-editor" style={{ width: '100%' }} cellPadding={5}>
     <tbody>
@@ -49,3 +50,14 @@ export const editorHeaderTemplate = (props) => {
     {(props !== undefined) ? ((props.Subject) ? <div>{props.Subject}</div> : <div>Crear Nueva Cita</div>) : <div></div>}
   </div>);
 };
+
+export const editorFooterTemplate = (props) =>{
+  return(
+    <div>
+      <button onClick={() => {
+        console.log("INFORMACION QUE TIENE EL FOOTER")
+        console.log(props)
+      }}>HOLA</button>
+    </div>
+  )
+}
